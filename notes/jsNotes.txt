@@ -266,6 +266,10 @@ SyntaxError
 
 
 
+                        BLOCKS AND BLOCK SCOPE
+
+Block is a group of statements grouped together. a block is used where a single statement is expected but we want to write multiple statements in place of a single statement. Block Scope means all the variables and functions that can be accessed inside that block. let and const are block scoped cause they are stored in a separate space for that block but var is stored in the global scope. when the block is executed let and const cannot be accessed(outside the block) but var can be accessed outside the block this is because after the block is executed the block is popped off the stack so the let and const are also popped off the stack and are no longer there so we cannot access them but var was in the global scope iso it is still there when the block is popped off therefore we can access it even after the block outside it. 
+
 
                                         GITHUB
 git init: to connect folder with git.
