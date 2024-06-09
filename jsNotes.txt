@@ -1,0 +1,305 @@
+                        FUNDAMENTALS
+
+                        STRING METHODS
+.length: will give us the length of the STRINNG
+.trim(): it is used to remove the spaces from the string. it does not change the original string but returns a new string.
+.slice(): it is used to get a few elements from the string
+
+                
+                        DOM : Document Object Model
+
+                        DOCUMET:
+
+browser takes the whole html and convert it into an object that is called as "document" and then add this into the 'window ' object that is always available in every js file.
+
+                    SELECTING ELEMENTS:
+
+as the whole html is present in document object then we can use this document object to access the html elements and manipulate them
+
+1. getElementById : this is used to select the html element using it's id . it returns an object
+
+document.getElementById('id_name')
+
+2. querySelector: this can be used to select anything like class, element,id and select element using the names we use in css like 'div h1' ,'.main-heading','#sec-heading'.Now consider a case in which we have list items having the class name '.nav-item' then it will return only the first '.nav-item' all css selector works with it
+
+3. querySelectorAll: this is used to select all elements that have same class or id. it will retur a nodelist that is like an array but not an array. in array like structures we cannot use all array methods but only a few like we can work with array index we can iterate it using for loop and for of loop and can use foreach() method its type is object it is just a arraylike structure
+
+4. getElementByClassName: this will give us an HTML collection that will contain all the elements with the given class name where HTMLCollection is an array like structure 
+
+document.getElementByClassName('class-name')
+
+5. getElementByTagName: it will return all the elements with the given tag in this we cannot use foreach loop we can convert this array like structure into an array by using Array.from() method after converting it into an array then we cann use all array methods
+it will return all the a elements.
+document.getElementByTagName('a');
+
+                    CHANGE TEXT:
+
+textContent: it will return the text the was present within the selected element  that is visible on the screen and that too that is not visible . and we can change that too.
+
+innerText: it will return the text that was present within the selected element  that is visible on the screen and does not show that  is not visible on the screen . and we can change that too.
+
+innerHTML: it will return everthing that is in the selected element wether its text another element or anything else. we can manipulatethat too we can add new elements also like heading paragraph and button etc.
+
+headline.innerHTML="<h1>this is new heading</h2>"
+headline.innerHTML+=<button class ='btn'>click me</button>
+
+                    CHANGE THE STYLES:
+
+.style is also an object
+element.style.propertyName="value"
+
+                    GET AND SET ATTRIBUTES:
+
+getAttribute: to get  the attribute of an element and then manipulate it
+element.getAttribute('attribut-name');
+
+setAttribute: this is how we set the attribute value
+elemet.setAttribute('attribute-name','attribute-value')
+
+                        DOM TREE
+
+At the  top of the tree there is rootNode that is document object 
+and then html will become child of document this is called root element and is called as child node of document.
+head is added as child node of html and then title will become the child node of the head and is also called as element node cause it contains an element after the title node there comes the text node that contains the text present within the tag of title all the nodes are object even the next line(when we hit enter) and spaces are also included in the dom tree
+
+                    TRAVERSING DOM TREE
+
+getRootNode: it will give us the root node that is 'document' object
+
+childNodes: it will give us a nodelist of all the children of the given element including text nodes and element nodes. 
+
+children: it will give all the child element nodes of the selected element excluding the text nodes 
+
+htmlElemetNode: it will give us html node that is the direct child of document node it is js object. we can access its childnodes using indexing
+
+parentNode:it will give us the parentNode of the give element
+
+nextsibling: will give us the next sibling of the given element the sibling that comes after the given element wether it is text node(next, line space) or element node
+
+nextElementSibling: it will give us next element sibling
+
+ 
+NOTE: we can use querySelector on any element node
+
+                    WORKING WITH CLASSES
+
+.classList: it will give us the  list  of all the classes the given element have. we can .add('--') classes .remove('--') classes and .toggle('--') classes. and we can check wether the given element .contains('--') the given class or not 
+
+                     CREATING HTML ELEMENTS
+
+.createElement('element-name'): it will create a new element node 
+
+.createTextNode('text'): it will create a new text node with the given value  we can do the same thing using textContent also
+
+element-name.remove(): it will remove the element that is selected
+
+                 ADDING NEW HTML ELEMENTS ON PAGE
+            
+element.append('element-add') : will add the given element-add at the end of the given element inside 
+
+element.prepend('element-add') : will add the given element-add at the start of the given element inside
+
+after:  it is used to add an element at the outside and element after that element
+
+befor:  it is used to add an element at the outside and element before that element
+
+insertAdjacentHTML: it is used to add something inside of an element .
+element.insertAdjacentHTML(where,html);
+where=beforeEnd,afterEnd,beforeStart,afterStart.
+
+clone Nodes(making copy of node):consider we created a node and then we want to apend and prepend it at the same thime but we cannot do it at the same time to come over this problem we use cloneNode();
+const li2 = li1.cloneNode(); // it will clone the node only not its child like textcontent and other child
+const li2 = li1.cloneNode(true); //this will deep clone the node and all the child we be cloned too
+
+                SOME OLD METHODS THAT WORK WITH INTERNET EXPLORER
+
+appendChild:this is used to add a child inside an element-container after
+
+insertBefore:this is used to add something inside an element-container before some reference point
+ul.insertBefore(li,referenceNode)
+
+replaceChild: this is used to replace a node.
+ul.replaceChild('new-child','old-child');
+
+removeChild:this is used to remove a child
+ul.removeChild('child-name')
+
+                   STATIC LIST V/S LIVE LIST
+
+querySelectorAll = static list
+getElementsBySomething=live list
+the difference between staticlist and live list is that static list only show that was present in  HTML and not that was added through js but live list shows everything that was added using js and that was present in html
+
+
+                             HOW TO GET THE DIMENSIONS OF AN ELEMENT
+
+element.getBoundingClientReact(): it will give us everthing about an element its height ,width ,distance from the top,and bottom etc.
+
+                            EVENTS
+
+when user do something on the webpage like click , hover, scroll, keyboard click ,mouse click etc 
+
+addEventListerner: it is used to listen any mehtod that is performed. 
+element.addEventListerner(event,function);
+if we are using  a nnormal funncion then the this keyword will be equl to the element it is added on and in case of arrow function this  will be equal to the window object or one level up from the element it is added on.
+
+                               CLICK EVENT ON MULTIPLE BUTTONS
+
+we can select all buttons and then run a loop and addEventListerner to all buttons all at once
+
+                                 EVENT Object
+
+when we add and event listerner to a button or any other elemet the browser is looking when the event is performed and when the event is performed the browser gives us the information of the event that was perforemd in the form of an object and that object is the event parameter that we use in our call back funcntion
+
+                                 KEYBOARD EVENT
+
+to see which key is pressesd from the keyboard we use keypress in place of click in the eventlisteren and then access the e.key to get which key was pressed from the keybord we can use mouseover and mouseleave and many more
+
+                                EVENT BUBBLINE(EVENT PROPOGATION)
+
+coming down is the capturing and going up is bubbling
+
+                                EVENT DELEGATION
+
+NOTE: There are two queues callback queue and microtask queue. The callback queue handles the call back function of all methods and micro task queue handles the callbacks of promises the microtask queue has priority over the call back queue
+
+                                              JS MODULES
+
+whatever we export from a module is called a public API  we can also import from other modules and these other modules are called the dependencies of the module in which we are importing it. the code in the importing module is executed after of code of the imported module's code is executed no matter if we import the module before the importing modules code or not because importing statement are hoisted to the top. we cannot access the variable of the exporting module in the importing module aslong as they are not exported for the exporting module if we put the export keyword in the front of a function or anything else then it is called as named export and in the importing file we have to mention its name ot import it . we can export and import multiple things from a module in case of default export we can have only one default export and at the time of exporting it does not have any time and at the time of importing we can give it any name we want .we can have both default and name exports from same module and in the same module the import and export have live connection the change in exporting file will also be reflected in the importing file 
+
+                                TOP LEVEL AWAIT
+
+we can use await outside async in modules this is called as top level await but this block the further code's execution in both modules in the importing module and in the exporting module
+
+
+                        COMMAND line
+
+cd: to change directory
+ls: to check all the files in the folder
+mkdir: to make a new folder
+rmdir: to remove the folder / delete the folder and it works for only those folders or directories that are empty
+rm -R folder-name: to delete the folder that is not empty.
+touch: to make a file in the folder and we can make multiple files at the same time also
+rm: to delete the files
+mv: to move the file from one folder to another for this we have to write the name of the file first and then the name of the folder in which we want to move this file to.
+
+control+C: to start a new line when a process is still running
+NOTE : A dependency is a library that a project needs to function effectively. DevDependencies are the packages a developer needs during development
+
+
+                     BABEL
+
+babel is a tool that coverts our modern js code into ES-5 js code so that those people who are using old versions of the browser can see and use our website  it just convert the syntatical sugar like arrow functions etc but not the new features that were added into the language CHECK ALL THE DETAILS ON THE OFFICIAL WEBSITE
+                    CORE-JS
+
+this is used for polyfilling means to convert that part of the code into es-5 code that is not converted through bible
+
+                    REGENERATOR RUNTIME
+
+this is used for polyfilling async functions
+
+
+
+
+                REAL LIFE PROJECTS 
+        
+        in real life projects mostly we have these two files for sure that are configure.js and helper.js  
+        configure.js: have the variable that are used again and agin in different files so we take them and declare them in config file and then import them where they are needed this helps alot in case we want to change that varible in case of no config we will have to change in all the places it  was used but in case of config file we will have to change in one place and then it will reflect in all the places where that was imported  and used
+        
+        helper.js: in this file we write those functions that will be helfull for the project etc
+
+
+------------------------------------------------------------------------------------------------------------
+
+        AKSHAY SAINI CONCEPTS
+ 
+JS is synchronous single thread language.
+everthing in js happens in execution context. 
+EXECUTION CONTEXT has two parts 
+1. Memory (variable enviornment)
+2. Code (thread of execution)
+
+1. in memory part or variable enviornment all the variables and functions are stored as key and value pair 
+
+2. in code or thread of execution the whole code is executed line by line .single line per line. 
+
+EXECUTION context is created in two phases
+
+1. Memory creation phases
+2. code execution phase
+
+1.this phase is executed even before even a single line of the code is executed. in first phase that is memory phase memory allocation is done . all the variables and functions are allocated memory. In case of variables the value of the variables is undefined and in case of functions the whole code of the function is stored in this phase 
+
+2. in code execution phase the code is executed line by line and the values of the variables are placed in the memory(variable enviornment) (in first phase their value was set to undefined now the original value is set) in case of functions  the function declaration this whole code is ignored but the magic starts when the fucntion is invoked or called. when the fucntion is called a new execution context is created inside of the globla execution context that have same two parts and two phases  . memory is allocated to the parameters the variables inside the fucntions and the functions inside the function. and set their value to undefined in the memory allocation phase and in the phase  two each line of the function is executed first of all the parameters values are set through arguments and the whole code of the function is executed in the code execution phase and the values of the varible are set accordingly. and when the return keyword is encountered in the function the execution is returned where the function was invoked and the function invokation value is set to the value that  was returned and the next line after the invokation starts executing . the execution context that was created for the function will be deleted . when the whole code of the program is executed then the global execution is also deleted.
+
+            CALL STACK
+
+CALL STACK MAINTAIN THE ORDER OF EXECUTION OF EXECUTION CONTEXTS.
+All  of this execution context and the parts and phases are managed by call stack . when the global execution context is created in is poped in the call stack and is at the bottom of the call stack . when a new execution context is created it is poped in at the top of the global execution context and when it is done execting it is poped out of the call stack and control goes back to the global execution context and when the global execution is done the the global execution context is alos poped out of the call stack and the call stack is empty at the end
+
+            HOISTING
+
+hoisting is just like memory allocation phase in execution context . All the variables are transferred at the top of the file the value of the variables is undefined and in the case of the function(function declaration) the whole code of the function is copied. therefore we can run a funcntion before its initialization without any error but in case of variables if we try to access a variable before its initialization it gives  us undefined. cause at that point that variable have value of undefined. the value is set at the line of initialization of variable.  in case of arrow functions we cannot access them before the initialization cause they behave just like variables. in case of function(function expression) it also behaves just like variables. we cannot invoke it before initialization.
+
+            FUNCTIONS
+
+functions have their own execution context and memory space as the execrution of the fucntion is done the execution context of that fucntion is pop out of the call stack.
+
+            WINDOW
+window is a global object that is created along with the global execution context by js engine. it is created even when the  file is empty. this keyword is also created. at the global level this points to the window object. all the variables and functions that we create at the global level are attached to the window object.
+
+            LEXICAL enviornment (scope chain)
+
+lexical enviornemt is created whenever an execution context is created. it contains the local memory and a reference to the lexical enviornemt (local memory) of its lexical parent(parent in the code). and then the parent also have the same thing in lexical enviornment local memory and reference to the lexical enviornment of the parent and at the end we reach the global space. the global execution context also have a lexical enviornment that is the  global memory and the refernece to the lexical enviornment of the parent that is null. this is where this ends. this makes a chain of lexical enviornmets that is called as scope chain.
+
+            CONST , LET 
+
+let is also hoisted but in a different way. we was able to access  the var variable before initialization and it gives us undefined instead of an error but this is not the case with let. let is also hoisted and aassigned place but not in the global object window  as var . it is aassigned place somewhere else in a separate storage and its value is put undefined untill it is not initialized. the time between hoisting and initialization is called as TEMPORAL DEAD ZONE. we cannot access the var variable before initialization it will give us an error. we can declare variables of same name multiple times with var but we  can't do this with let we cannot have same name varibles declared using let  it will give us syntax error an not even a single line will be executed.
+const hoisting is same as let but there is difference while declaration we have to assign value to it we cannot do declaration and assignment at different times. and once assignment we cannot reassign to the const again.
+
+            TYES OF ERRORS
+TypeError:
+ReferenceError:
+SyntaxError
+
+            UNDEFINED & NOT DEFINED
+
+
+
+                        BLOCKS AND BLOCK SCOPE
+
+Block is a group of statements grouped together. a block is used where a single statement is expected but we want to write multiple statements in place of a single statement. Block Scope means all the variables and functions that can be accessed inside that block. let and const are block scoped cause they are stored in a separate space for that block but var is stored in the global scope. when the block is executed let and const cannot be accessed(outside the block) but var can be accessed outside the block this is because after the block is executed the block is popped off the stack so the let and const are also popped off the stack and are no longer there so we cannot access them but var was in the global scope iso it is still there when the block is popped off therefore we can access it even after the block outside it. 
+
+
+                                        GITHUB
+git init: to connect folder with git.
+git config --global user.name alisha chohan: to conngifgure the name in all repos in device.
+git config --global user.email chohanalish12@gmail.com: to configure the email in all repos in device.
+git rest --hard HEAD: to go back to the previous commit.
+git log : to see the previous commits
+
+                        CLOSURES
+
+closures is a function bundled with its lexical scope. consider there is a function x and this function has a variable a = 7. now we made another function inside x and called it y. and this function only prints the value of a on the screen. now  i returned this function from its parent function. like this
+
+function x(){
+        var a = 7;
+        function y(){
+                console.log(a);
+        }
+        return y;
+}
+var z = x();
+console.log(z);  // this will return the whole function
+z() // this will return the value of a
+
+ok so now we will understand this code sample and understand closures
+
+var z = x();   in this line x function will be executed and y funciton will be returned (the whole function code) and will be stored in z variable. and after this line is executed the execution context that was created for thid fucntion will be popped out of the stack that it will be no longer there.  
+z()  now when we this line is executed the function y will be executed be how? the variable a is no longer there cause the execution context of function x is no longer there so how will it print the value of a?  this is here closures comes into play . this function remembers its lexical scope and that there was a varible a  IT REMEMBER ITS REFERENCE . in other words when this function was returned not only the code of the function was return only but also the closure of the funciton that is the lexical scope of the function was also returned an was put in z so we can use z anywhere in the code it will still remeber its lexical Scope
+
+NOTE: THE FUNCTION IS RETURN WITH THE REFERENCE TO THE VARIABELS NOT THEIR VALUES 
+
+                        RETURNING A FUNCTION
+
+
